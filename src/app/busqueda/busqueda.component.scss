@@ -1,0 +1,481 @@
+*{
+    margin:0;
+}
+
+
+header{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(142, 201, 94);
+
+    #imagen{
+        cursor: pointer;
+        display: flex;
+        width:30%;
+        justify-content: center;
+    }
+    h1{
+        margin-right: 30%;
+        text-align: center;
+        margin : 0px;
+        margin-right: 15%;
+        font-size: 3.5vw;
+        height: 100%;
+    }
+    #slogan{
+        display: flex;
+        align-items: center;
+        width:70%;
+        justify-content: center;
+    }
+    img{
+        max-width: 100%;
+    }
+    #menu{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 5%;
+        width: 70%;
+        background-color: rgb(182, 182, 182);
+        border-radius: 50px;
+
+        div{
+            width: 33.33%;
+            margin:0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1%;
+            font-size: 1.3vw;
+            cursor: pointer;
+
+        }
+        div:hover{
+            background-color: rgb(105, 105, 105);
+            border-radius: 50px;
+        }
+        #cerrar:hover{
+            background-color: rgb(216, 74, 74);
+            border-radius: 50px;
+        }
+        
+    }
+    #copia{
+        display: none;
+        position: absolute;
+        flex-direction: column;
+        width: 40%;
+        left: 53.5%;
+        top:70px;
+        margin: 0px;
+        border-radius: 20px;
+        background-color: rgb(170, 167, 167);
+        z-index: 100;
+
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 100%;
+            margin: 0px;
+            padding: 5px 0;
+        }
+        div:hover{
+            background-color: rgb(105, 105, 105);
+            border-radius: 50px;
+        }
+        #cerrar:hover{
+            background-color: rgb(216, 74, 74);
+            border-radius: 50px;
+        }
+    }
+
+}
+body{
+    .busq_sencilla{
+        margin:15px 0px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        div{
+            display: flex;
+            width:15%;
+            margin-left: 10px;
+            justify-content: center;
+            align-items: center;
+            
+
+            *{
+                margin:1%;
+                max-width:100%;
+            }
+        }
+       
+
+    }
+    .busq_avanzada{
+        margin:0;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+        
+        div{
+           display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 100%;
+            
+        }
+        #clave{
+            margin-left: 2.2vw;
+            max-width:25%;
+        }
+        section{
+            max-width: 75%;
+        }
+        table{
+            font-size: 1.4vw;
+            border-spacing:1.2vw 0;
+            
+            mat-icon{
+                top:20%;
+                margin-left:0.6vw;
+            }
+        } 
+    }
+
+    .busq_avanzada>p{
+        cursor: pointer;
+        text-decoration: underline;
+        color: red;
+    }
+
+
+
+    #buscador{
+        display: flex;
+        width: 90%;
+        justify-content: center;
+        margin: auto;
+        margin-top: 15px;
+        flex-direction:column;
+        border: 4px solid grey;
+
+    }
+    form{
+        width: 100%;
+    }
+    
+    #clave{
+        width: 100%;
+    }
+
+    #instalaciones>div:nth-child(even){
+        background-color: rgb(195, 228, 163);
+    }
+
+    #instalaciones{
+        cursor: pointer;
+        margin: auto;
+        margin-top:1%;
+        border:4px solid grey;
+        
+        h1{
+            font-weight: bold;
+            font-size: 1.7vw;
+            margin: 1.5% 1%;
+        }
+        h3{
+            font-size: 1.2vw;
+            margin-left: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        h3:hover{
+            color: rgb(70, 67, 67);
+        }
+        #dir{
+            font-size: 1.0vw;
+            color:gray
+        }
+        #col_nombre p{
+           
+            width: 30%;
+        }
+        .deporte{
+            margin-left: 20px;
+            text-decoration: underline;
+            font-weight: bold;
+            font-size: 1.0vw;
+        }
+        .valoracion{
+            font-size: 1.0vw;
+        }
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        
+        
+    }
+    .imagenes{
+        width: 30%;
+        display: flex;
+        align-items: center;
+        img{
+            max-width: 100%;
+        }
+    }
+    .contenido{
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+    }
+    .instalacion{
+        margin: 1.5% 1%;
+        display: flex;
+        flex-direction: row;
+
+        
+    }
+    #horarios_ordenador{
+        display:flex;
+    }
+    #horarios_movil{
+        display:none;
+    }
+    .horarios{
+        
+        display:flex;
+        align-items: center;
+        font-weight: bold;
+        width: 100%;
+
+        .dias{
+            width: 9%;
+            margin-bottom: 1%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10%;
+
+
+            font-weight: bold;
+            font-size: 0.9vw;
+            border:2px solid black;
+            border-radius: 50%;
+        }
+        p{
+            font-size: 0.9vw;
+            margin: auto 0;
+            
+        }
+        
+        div{
+            margin:0px 2%;
+            font-weight:lighter;
+        }
+        
+    }
+    .precio{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 0px 2%;
+        font-size: 1vw;
+
+
+        *{
+            margin: 2%;
+            text-align: center;
+        }
+        .pre{
+            border: 2px solid black;
+            font-weight: bold;
+            padding:0px 3px;
+        }
+    }
+}
+#hamburguesa{
+    display: none;
+    div{
+    width: 35px;
+    height: 5px;
+     background-color: black;
+    margin: 6px 0;
+    }
+}
+body #buscador_movil{
+    display: none;
+}
+
+@media screen and (max-width: 768px){
+    
+    body #horarios_movil{
+        display:none;
+
+    }
+    body #instalaciones{
+        *{
+            font-size: 2vw;
+        }
+        table{
+            *{
+                font-size: 2vw;
+            } 
+        }
+        #dir{
+            font-size: 2vw;
+        }
+        h1{
+            font-size: 3vw;
+        }
+    }
+    body #buscador_movil{
+        display: flex;
+        width: 90%;
+        justify-content: center;
+        margin: auto;
+        margin-top: 15px;
+        flex-direction:column;
+        border: 4px solid grey;
+        
+        .b_sencilla{
+            width: 100%;
+        }
+        .fila{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: row;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            max-width: 100%;
+            div{
+                max-width: 50%;
+                *{
+                    max-width: 100%;
+                }
+            }
+        }
+
+        .b_avanzada>p{
+            cursor: pointer;
+            text-decoration: underline;
+            color: red;
+        }
+        table{
+            mat-icon{
+                top:20%;
+                margin-left:1vw;
+            }
+        }
+    }
+    body #buscador{
+        display: none;
+    }
+   header nav{
+       display: flex;
+       font-size: 2vw;
+   }
+   header #copia{
+    display: none;
+    z-index: 100;
+   }
+}
+
+@media screen and (max-width: 600px){
+    body #pre_ord{
+        display:none;
+    }
+    body #eti_ord{
+        display:none;
+    }
+
+    body #horarios_ordenador{
+        display:none;
+    }
+    body #horarios_movil{
+        display:flex;
+        flex-direction: column;
+    }
+    body #buscador_movil{
+        display: flex;
+    }
+    body #buscador{
+        display: none;
+    }
+    header{
+        height: 100px;
+    }
+    header #imagen{
+        width:70%;
+
+    }
+    header img{
+        max-height: 100px;
+    }
+    header #hamburguesa{
+        display: block;
+        cursor: pointer;
+        width: 30%;
+        margin: auto;
+        div{
+            display: flex;
+            justify-content: center;
+        }
+    }
+    
+    header #menu{
+        display:none;
+    }
+
+    header #copia{
+        display: none;
+        position: absolute;
+        flex-direction: column;
+        width: 40%;
+        left: 53.5%;
+        top:70px;
+        margin: 0px;
+        border-radius: 20px;
+        background-color: rgb(170, 167, 167);
+        z-index: 100;
+
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 100%;
+            margin: 0px;
+            padding: 5px 0;
+        }
+        div:hover{
+            background-color: rgb(105, 105, 105);
+            border-radius: 50px;
+        }
+        #cerrar:hover{
+            background-color: rgb(216, 74, 74);
+            border-radius: 50px;
+        }
+    }
+
+
+    header #slogan{
+        display: none;
+    }
+   
+
+}

@@ -1,0 +1,287 @@
+<header>
+  <div id="imagen">
+    <img (click)="home()" src = "..\assets\output-onlinepngtools.png">
+  </div>
+ 
+ <div id="slogan">
+    <h1 *ngIf='this.global.sesion==-1'>Tu mayor rival eres tú mismo</h1>
+  </div>
+
+ <nav id="menu" *ngIf='this.global.sesion!=-1'>
+    <div (click)="busqueda_link()">Búsqueda</div>
+    <div (click)="mis_reservas_link()">Mis reservas</div>
+    <div id="cerrar" (click)="cerrar_sesion_link()">Cerrar sesión</div>
+ </nav>
+ 
+ <nav id="copia" *ngIf='this.global.sesion!=-1'>
+  <div (click)="busqueda_link()">Búsqueda</div>
+  <div (click)="mis_reservas_link()">Mis reservas</div>
+  <div id="cerrar" (click)="cerrar_sesion_link()">Cerrar sesión</div>
+</nav>
+
+ <div id="hamburguesa" (click)="showHamb()">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+</header>
+
+<body>
+   <div id="buscador">
+
+
+    <div class="busq_sencilla">
+      <div >
+          <mat-form-field class="example-full-width">
+            <mat-label>Ciudad</mat-label>
+            <input type="text"
+                    aria-label="Number"
+                    matInput
+                    [formControl]="myControl"
+                    [matAutocomplete]="auto"
+                    [(ngModel)]="ciudad">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Deporte</mat-label>
+          <mat-select [(ngModel)]="deporte">
+            <mat-option *ngFor="let x of deportes"  [value]="x">
+              {{x}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="dia">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="example-form-field">
+          <mat-label>Hora</mat-label>
+          <input matInput type="text" [(ngModel)]="hora" placeholder="hh:mm">
+          <button mat-button *ngIf="hora" matSuffix mat-icon-button aria-label="Clear" (click)="hora=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+        <div><button mat-raised-button (click)="buscar()" color="primary">Buscar</button></div>
+       
+
+      </div>
+
+
+      <div class="busq_avanzada">
+        <p (click)="busqueda_avanzada()">Búsqueda avanzada</p>
+        <div *ngIf="busqueda_a==1">
+          <section >
+            <table>
+            <tr>
+              <td><mat-checkbox [(ngModel)]="acceso_minus">Acceso minusválidos<mat-icon >accessible</mat-icon></mat-checkbox></td>
+              <td><mat-checkbox [(ngModel)]="cancel_res">Cancelación de reserva<mat-icon >cancel</mat-icon></mat-checkbox></td>
+              <td><mat-checkbox [(ngModel)]="vestuario">Vestuario<mat-icon >bathroom</mat-icon></mat-checkbox></td>
+
+            </tr>
+            <tr>
+              <td><mat-checkbox [(ngModel)]="parking">Parking<mat-icon >directions_car_filled</mat-icon></mat-checkbox></td>
+              <td><mat-checkbox [(ngModel)]="pago_sitio">Pago en el sitio<mat-icon >local_atm</mat-icon></mat-checkbox></td>
+              <td><mat-checkbox [(ngModel)]="inst_cub">Instalaciones cubiertas<mat-icon >umbrella</mat-icon></mat-checkbox></td>
+            </tr>
+            </table>
+
+            </section>
+            <div id="clave">
+            <mat-form-field class="example-form-field">
+              <mat-label>Búsqueda palabras clave</mat-label>
+              <input matInput type="text" [(ngModel)]="claves">
+              <button mat-button *ngIf="claves" matSuffix mat-icon-button aria-label="Clear" (click)="claves=''">
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+
+          </div>
+
+       </div>
+   </div>
+
+   <div id="buscador_movil">
+
+    <div class="b_sencilla">
+          <div class="fila">
+              <div >
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Ciudad</mat-label>
+                    <input type="text"
+                            aria-label="Number"
+                            matInput
+                            [formControl]="myControl"
+                            [matAutocomplete]="auto"
+                            [(ngModel)]="ciudad">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{option}}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+              </div>
+
+              <div>
+                <mat-form-field appearance="fill">
+                  <mat-label>Deporte</mat-label>
+                  <mat-select [(ngModel)]="deporte">
+                    <mat-option *ngFor="let x of deportes"  [value]="x">
+                      {{x}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+          </div>
+          <div class="fila">
+              <div>
+                <mat-form-field appearance="fill">
+                  <mat-label>Choose a date</mat-label>
+                  <input matInput [matDatepicker]="picker1" [(ngModel)]="dia">
+                  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+              </div>
+
+              <div>
+                <mat-form-field class="example-form-field">
+                  <mat-label>Hora</mat-label>
+                  <input matInput type="text" [(ngModel)]="hora" placeholder="hh:mm">
+                  <button mat-button *ngIf="hora" matSuffix mat-icon-button aria-label="Clear" (click)="hora=''">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
+          </div>
+      </div>
+      <div class="fila">
+          <div class="b_avanzada">
+            <p (click)="busqueda_avanzada()">Búsqueda avanzada</p>
+            <div *ngIf="busqueda_a==1">
+              <section >
+                <table>
+                  <tr><mat-checkbox [(ngModel)]="acceso_minus">Acceso minusválidos<mat-icon >accessible</mat-icon></mat-checkbox></tr>
+                  <tr><mat-checkbox [(ngModel)]="cancel_res">Cancelación de reserva<mat-icon >cancel</mat-icon></mat-checkbox></tr>
+                  <tr><mat-checkbox [(ngModel)]="vestuario">Vestuario<mat-icon >bathroom</mat-icon></mat-checkbox></tr>
+                  <tr><mat-checkbox [(ngModel)]="parking">Parking<mat-icon >directions_car_filled</mat-icon></mat-checkbox></tr>
+                  <tr><mat-checkbox [(ngModel)]="pago_sitio">Pago en el sitio<mat-icon >local_atm</mat-icon></mat-checkbox></tr>
+                  <tr><mat-checkbox [(ngModel)]="inst_cub">Instalaciones cubiertas<mat-icon >umbrella</mat-icon></mat-checkbox></tr>
+                </table>
+
+                </section>
+                <div id="clave_movil">
+                <mat-form-field class="example-form-field">
+                  <mat-label>Búsqueda palabras clave</mat-label>
+                  <input matInput type="text" [(ngModel)]="claves">
+                  <button mat-button *ngIf="claves" matSuffix mat-icon-button aria-label="Clear" (click)="claves=''">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
+
+              </div>
+          </div>
+          <div><button mat-raised-button (click)="buscar()" color="primary">Buscar</button></div>
+      </div>
+   </div>
+
+
+<div id="instalaciones">
+  <h1>Instalaciones disponibles</h1>
+  <div  *ngFor='let anuncio of global.anuncios; let i=index'>
+        <div class="instalacion" *ngIf='busqueda(i)==true' (click)="anuncio_link(i)">
+          <div class="imagenes"><img [src]="anuncio.foto"></div>
+          <div class="contenido">
+            <table>
+              <tr>
+                  <td class ="col_nombre"><h3  (click)="anuncio_link(i)"> {{anuncio.nombre}}</h3></td>
+                  <td><p id="dir" > {{anuncio.direccion}}</p></td>
+                </tr>
+                <tr>
+                  <td ><p class ="deporte" > {{anuncio.deporte}}</p></td>
+                  <td><p class ="valoracion">Valoración: {{media(i)}}</p></td>
+                </tr>
+
+              </table>
+
+
+                <div class="horarios" id="horarios_ordenador" *ngFor='let dia of anuncio.horarios'> <div class="dias">{{dia[0]}}</div> <p class="etiq">Horas disponibles:</p>
+                  <div *ngFor='let horas of dia; let j=index'> <p *ngIf='j!=0'>{{horas}}</p>    </div></div>
+
+                  
+                  <div class="precio">
+                  <div id="pre_ord" class="pre">Precio {{anuncio.precio|currency:'EUR':'symbol':'0.0-2':'es'}}</div>
+                  <div  id="eti_ord" *ngFor='let etiqueta of anuncio.etiquetas'>
+                      <p *ngIf='etiqueta=="Acceso minusválidos"'>Acceso minusválidos<mat-icon >accessible</mat-icon></p>
+                      <p *ngIf='etiqueta=="Cancelación de reserva"' >Cancelación de reserva<mat-icon >cancel</mat-icon></p>
+                      <p *ngIf='etiqueta=="Vestuario"'>Vestuario<mat-icon >bathroom</mat-icon></p>
+                      <p *ngIf='etiqueta=="Parking"'>Parking<mat-icon >directions_car_filled</mat-icon></p>
+                      <p *ngIf='etiqueta=="Pago en el sitio"'>Pago en el sitio<mat-icon >local_atm</mat-icon></p>
+                      <p *ngIf='etiqueta=="Instalaciones cubiertas"'>Instalaciones cubiertas<mat-icon >umbrella</mat-icon></p>
+                  </div>
+                </div>
+
+                
+          </div>
+  </div>
+  <div id="horarios_movil">
+  <div class="horarios"  *ngFor='let dia of anuncio.horarios'> <div class="dias">{{dia[0]}}</div> <p class="etiq">Horas disponibles:</p>
+                  <div *ngFor='let horas of dia; let j=index'> <p *ngIf='j!=0'>{{horas}}</p>    </div></div>
+
+                  
+                  <div class="precio">
+                    <div class="pre">Precio {{anuncio.precio|currency:'EUR':'symbol':'0.0-2':'es'}}</div>
+                    <div *ngFor='let etiqueta of anuncio.etiquetas'>
+                        <p *ngIf='etiqueta=="Acceso minusválidos"'>Acceso minusválidos<mat-icon >accessible</mat-icon></p>
+                        <p *ngIf='etiqueta=="Cancelación de reserva"' >Cancelación de reserva<mat-icon >cancel</mat-icon></p>
+                        <p *ngIf='etiqueta=="Vestuario"'>Vestuario<mat-icon >bathroom</mat-icon></p>
+                        <p *ngIf='etiqueta=="Parking"'>Parking<mat-icon >directions_car_filled</mat-icon></p>
+                        <p *ngIf='etiqueta=="Pago en el sitio"'>Pago en el sitio<mat-icon >local_atm</mat-icon></p>
+                        <p *ngIf='etiqueta=="Instalaciones cubiertas"'>Instalaciones cubiertas<mat-icon >umbrella</mat-icon></p>
+                    </div>
+                  </div>
+              </div>
+              
+
+
+      
+</div>
+
+</div>
+
+
+    
+
+    
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+

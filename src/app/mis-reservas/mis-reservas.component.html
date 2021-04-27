@@ -1,0 +1,78 @@
+<header>
+   <div id="imagen">
+     <img (click)="home()" src = "..\assets\output-onlinepngtools.png">
+   </div>
+  
+  <div id="slogan">
+     <h1 *ngIf='this.global.sesion==-1'>Tu mayor rival eres tú mismo</h1>
+   </div>
+ 
+  <nav id="menu" *ngIf='this.global.sesion!=-1'>
+     <div (click)="busqueda_link()">Búsqueda</div>
+     <div (click)="mis_reservas_link()">Mis reservas</div>
+     <div id="cerrar" (click)="cerrar_sesion_link()">Cerrar sesión</div>
+  </nav>
+  
+  <nav id="copia" *ngIf='this.global.sesion!=-1'>
+   <div (click)="busqueda_link()">Búsqueda</div>
+   <div (click)="mis_reservas_link()">Mis reservas</div>
+   <div id="cerrar" (click)="cerrar_sesion_link()">Cerrar sesión</div>
+ </nav>
+ 
+  <div id="hamburguesa" (click)="showHamb()">
+   <div></div>
+   <div></div>
+   <div></div>
+ </div>
+ 
+ </header>
+
+   <body>
+
+      <h1>Mis reservas</h1>
+
+      <div class="reservas" *ngFor='let reserva of this.global.usuarios[this.global.sesion].reservas; let j=index'>
+            <div class="reserva">
+
+
+               <div class="imagenes">
+                  <img [src]="this.global.anuncios[reserva.id].foto">
+               </div>
+               <div class="atributos">
+                  <table>
+                     <tr><th>{{this.global.anuncios[reserva.id].nombre}}</th></tr>
+                     <tr> Dia: {{reserva.dia}}</tr>
+                     <tr>Hora: {{reserva.hora}}</tr>
+                     <tr>{{this.global.anuncios[reserva.id].deporte}}</tr>
+                     <tr>{{this.global.anuncios[reserva.id].direccion}}</tr>
+                     <tr>Teléfono: {{this.global.anuncios[reserva.id].telefono}}</tr>
+                  </table>
+               </div>
+
+            </div>
+
+               <div class="boton">
+                  <div class="valor">
+                     <mat-form-field class="example-form-field">
+                        <mat-label>Valoración</mat-label>
+                        
+                        <input matInput placeholder="0-5" type="text" [(ngModel)]="valoraciones[j]">
+                        <button mat-button matSuffix mat-icon-button aria-label="Clear">
+                        </button>
+                     </mat-form-field>
+                     <button mat-raised-button  (click)="valorar(reserva.id,j)" color="primary">Guardar valoración</button>
+                  </div>
+                  <div><button mat-raised-button (click)="canc_reserva(j)" color="warn">Cancelar reserva</button></div>
+               </div>
+           
+               <br>
+               <br>
+               <br>
+
+         </div>
+
+
+
+   
+      
+   </body>

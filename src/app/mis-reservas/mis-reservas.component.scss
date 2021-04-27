@@ -1,0 +1,340 @@
+.reservas:nth-child(even){
+    background-color: rgb(195, 228, 163);
+}
+body{
+    
+    .example-form-field{
+        max-width: 100%;
+    }
+    *{
+        font-size: 1.5vw;
+    }
+    
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 15px;
+    width: 90%;
+    border: 4px solid grey;
+    height: fit-content;
+    padding-bottom: 50px;
+    
+
+    h1{
+        font-weight: bold;
+            font-size: 1.7vw;
+            margin: 1.5% 1%;
+    }
+    .reservas{
+        
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        
+    }
+    .reserva{
+        margin: 1.5% 1%;
+        width: 66%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+    }
+    .imagenes{
+        width: 50%;
+        img{
+            max-width: 100%;
+        }
+    }
+    .atributos{
+       width: 50%;
+       margin-left: 2%;
+       table{
+        border-spacing:0 1.2vw;
+       }
+
+    }
+
+    .boton{
+        width: 33%;
+        display: flex;
+        align-items: center;
+        justify-items: left;
+        flex-direction: column;
+        
+        button{
+           
+            max-width: 100%;
+            span{
+                max-width: 100%;
+            }
+        }
+        
+        max-width: 100%;
+        div{
+            margin:5% 2%;
+            width: 100%;
+        }
+        mat-form-field{
+            margin-right: 70px;
+        }
+    }
+}
+
+*{
+    margin:0;
+}
+
+
+header{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(142, 201, 94);
+
+    #imagen{
+        cursor: pointer;
+        display: flex;
+        width:30%;
+        justify-content: center;
+    }
+    h1{
+        margin-right: 30%;
+        text-align: center;
+        margin : 0px;
+        margin-right: 15%;
+        font-size: 3.5vw;
+        height: 100%;
+    }
+    #slogan{
+        display: flex;
+        align-items: center;
+        width:70%;
+        justify-content: center;
+    }
+    img{
+        max-width: 100%;
+    }
+    #menu{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 5%;
+        width: 70%;
+        background-color: rgb(182, 182, 182);
+        border-radius: 50px;
+
+        div{
+            width: 33.33%;
+            margin:0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1%;
+            font-size: 1.3vw;
+            cursor: pointer;
+
+        }
+        div:hover{
+            background-color: rgb(105, 105, 105);
+            border-radius: 50px;
+        }
+        #cerrar:hover{
+            background-color: rgb(216, 74, 74);
+            border-radius: 50px;
+        }
+        
+    }
+    #copia{
+        display: none;
+        position: absolute;
+        flex-direction: column;
+        width: 40%;
+        left: 53.5%;
+        top:70px;
+        margin: 0px;
+        border-radius: 20px;
+        background-color: rgb(170, 167, 167);
+        z-index: 100;
+
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 100%;
+            margin: 0px;
+            padding: 5px 0;
+        }
+        div:hover{
+            background-color: rgb(105, 105, 105);
+            border-radius: 50px;
+        }
+        #cerrar:hover{
+            background-color: rgb(216, 74, 74);
+            border-radius: 50px;
+        }
+    }
+
+}
+
+#hamburguesa{
+    display: none;
+    div{
+    width: 35px;
+    height: 5px;
+     background-color: black;
+    margin: 6px 0;
+    }
+}
+
+
+@media screen and (max-width: 768px){
+   header nav{
+       display: flex;
+   }
+   header #copia{
+    display: none;
+    z-index: 100;
+   }
+   body {
+    *{
+        font-size: 2vw;
+    }
+    table{
+        *{
+            font-size: 2vw;
+        } 
+    }
+    h1{
+        font-size: 3vw;
+    }
+}
+}
+
+@media screen and (max-width: 600px){
+
+    header{
+        height: 100px;
+    }
+    header #imagen{
+        width:70%;
+
+    }
+    header img{
+        max-height: 100px;
+    }
+    header #hamburguesa{
+        display: block;
+        cursor: pointer;
+        width: 30%;
+        margin: auto;
+        div{
+            display: flex;
+            justify-content: center;
+        }
+    }
+    
+    header #menu{
+        display:none;
+    }
+
+    header #copia{
+        display: none;
+        position: absolute;
+        flex-direction: column;
+        width: 40%;
+        left: 53.5%;
+        top:70px;
+        margin: 0px;
+        border-radius: 20px;
+        background-color: rgb(170, 167, 167);
+        z-index: 100;
+
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 100%;
+            margin: 0px;
+            padding: 5px 0;
+        }
+        div:hover{
+            background-color: rgb(105, 105, 105);
+            border-radius: 50px;
+        }
+        #cerrar:hover{
+            background-color: rgb(216, 74, 74);
+            border-radius: 50px;
+        }
+    }
+
+
+    header #slogan{
+        display: none;
+    }
+
+
+    body{
+        .reservas{
+            display: flex;
+            flex-direction: column;
+            padding: 6px;
+            
+        }
+        .reserva{
+            
+            width: 100%;
+            
+        }
+        .imagenes{
+            width: 50%;
+            img{
+                max-width: 100%;
+            }
+        }
+        .atributos{
+           width: 50%;
+
+    
+        }
+        
+        .boton{
+            width: 100%;
+            display: flex;
+            align-items: left;
+            justify-items: left;
+            flex-direction: column;
+            justify-content: space-between;
+            
+            
+            button{
+                max-width: 30%;
+
+                margin: 2px;
+                span{
+                    
+                    max-width: 20%;
+                    
+                }
+            }
+            
+            div{
+                margin:0;
+                
+                width: 100%;
+            }
+        }
+    
+
+
+
+
+
+    }
+   
+
+}
